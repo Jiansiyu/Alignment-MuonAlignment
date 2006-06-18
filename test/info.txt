@@ -1,0 +1,19 @@
+
+       =================================================
+
+       Message Log File written by MessageLogger service 
+       
+       =================================================
+       
+%MSG-i DDLParser:  19-Jun-2006 01:26:45 XYZ pre-events
+Start Parsing.  Validation is set off for the time being.
+%MSG-i FwkReport:  19-Jun-2006 01:26:50 XYZ BeforeEvents
+Begin processing the 1th record. Run 1, Event 1
+%MSG-i MuonAlignment:  TestTranslation:prod 19-Jun-2006 01:26:50 XYZ 1/1
+Starting!
+%MSG-i AlignableMuon:  TestTranslation:prod 19-Jun-2006 01:26:50 XYZ 1/1
+Constructing alignable muon objects
+%MSG-i AlignableMuon:  TestTranslation:prod 19-Jun-2006 01:26:57 XYZ 1/1
+Constructing alignable muon objects DONE
+%MSG-i MuonAlignment:  TestTranslation:prod 19-Jun-2006 01:26:57 XYZ 1/1
+Done!
