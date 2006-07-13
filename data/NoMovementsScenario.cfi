@@ -1,17 +1,20 @@
-#
-# "Misalignment" scenario without misalignment...
-# 
-# Include this file to produce an aligned tracker geometry with the misalignment tools
-#
-# This replaces Geometry/TrackerGeometryBuilder/data/trackerGeometry.cfi
-#
+//
+// "Misalignment" scenario without misalignment...
+// 
+// Include this file to produce an aligned muon geometry with the misalignment tools
+//
+// This replaces both 
+// Geometry/DTGeometry/data/dtGeometry.cfi
+// and
+// Geometry/CSCGeometry/data/cscGeometry.cfi
+//
 
-es_module MisalignedTracker = MisalignedTrackerESProducer
+es_module MisalignedMuon = MisalignedMuonESProducer
  {
 
        // -- General settings -- //
        untracked bool dumpBefore = false   // This is actually the default
-       untracked bool dumpAfter = false    // This is actually the default
+       untracked bool dumpAfter  = false    // This is actually the default
        untracked bool saveToDbase = false  // This is actually the default
  
        int32 seed = 1234567

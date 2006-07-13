@@ -1,12 +1,12 @@
 #
 # Example misalignment scenario
 # 
-# Include this file to produce a misaligned tracker geometry
+# Include this file to produce a misaligned muon geometry
 #
-# This replaces Geometry/TrackerGeometryBuilder/data/trackerGeometry.cfi
-#
+# This replaces Geometry/DTGeometry/data/dtGeometry.cfi
+# and Geometry/CSCGeometry/data/cscGeometry.cfi
 
-es_module MisalignedTracker = MisalignedTrackerESProducer
+es_module MisalignedMuon = MisalignedMuonESProducer
   {
 
 	// -- General settings -- //
@@ -15,21 +15,17 @@ es_module MisalignedTracker = MisalignedTrackerESProducer
 	untracked bool saveToDbase = false  // This is actually the default
 
 	// -- Top-level --//
-	string distribution = 'gaussian'
+	string distribution = 'fixed'
 	int32 seed = 1234567
 	bool  setError = true
 
 	// -- Barrel -- //
-	PSet TOBs = {
-	  double dX = 0.2
-	  PSet BarrelLayer1 = { double phiX = 0.03 }
-	}
-	
-	PSet TOB1 = {
-	  PSet BarrelLayers = { double dX = 0.1 }
-	  PSet BarrelLayer1 = { double dX = 0.2 }
+	PSet DTBarrels = {
+	  double phiZ = 0.1
 	}
 
-
+       PSet CSCEndcaps = {
+          double phiZ = 0.1
+       }	
   }
 
