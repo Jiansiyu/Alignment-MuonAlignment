@@ -6,17 +6,6 @@
 <use name=FWCore/Framework> 
 <use name=FWCore/MessageLogger> 
 
-<library file=TestAnalyzer.cpp name=testMuonAlignment>
+<library file=TestMuonAnalyzer.cpp name=testMuonAlignment>
   <flags SEAL_PLUGIN_NAME="testMuonAlignment">
 </library>
-
-<library file=TestRotation.cpp name=testMuonAlignment>
-  <flags SEAL_PLUGIN_NAME="testMuonAlignment">
-</library>
-
-<library file=TestTranslation.cpp name=testMuonAlignment>
-  <flags SEAL_PLUGIN_NAME="testMuonAlignment">
-</library>
-
-
-

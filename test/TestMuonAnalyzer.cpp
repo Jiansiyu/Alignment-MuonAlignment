@@ -1,15 +1,11 @@
 // -*- C++ -*-
 //
-// Package:    TestAnalyzer
-// Class:      TestAnalyzer
+// Package:    TestMuonAnalyzer
+// Class:      TestMuonAnalyzer
 // 
 //
 // Description: Module to test the Alignment software
 //
-//
-// Original Author:  Frederic Ronga
-//         Created:  March 16, 2006
-//        Modified:  June   8, 2006
 //
 
 
@@ -46,18 +42,22 @@
 // class declaration
 //
 
-class TestAnalyzer : public edm::EDAnalyzer {
+class TestMuonAnalyzer : public edm::EDAnalyzer {
 public:
-  explicit TestAnalyzer( const edm::ParameterSet& );
-  ~TestAnalyzer();
+  explicit TestMuonAnalyzer( const edm::ParameterSet& );
+  ~TestMuonAnalyzer();
   
   
   virtual void analyze( const edm::Event&, const edm::EventSetup& );
 private:
+
+  void fillTree( const GeomDet* geomDet );
+
   // ----------member data ---------------------------
   TTree* theTree;
   TFile* theFile;
   float x,y,z,phi,theta,length,thick,width;
+  int Id_;
   TRotMatrix* rot;
 
 };
@@ -65,14 +65,15 @@ private:
 //
 // constructors and destructor
 //
-TestAnalyzer::TestAnalyzer( const edm::ParameterSet& iConfig ) 
+TestMuonAnalyzer::TestMuonAnalyzer( const edm::ParameterSet& iConfig ) 
 { 
 
   // Open root file and define tree
   std::string fileName = iConfig.getUntrackedParameter<std::string>("fileName","test.root");
   theFile = new TFile( fileName.c_str(), "RECREATE" );
   theTree = new TTree( "theTree", "Detector units positions" );
-  
+
+  theTree->Branch("Id",     &Id_,    "Id/I"     );
   theTree->Branch("x",      &x,      "x/F"      );
   theTree->Branch("y",      &y,      "y/F"      );
   theTree->Branch("z",      &z,      "z/F"      );
@@ -87,7 +88,7 @@ TestAnalyzer::TestAnalyzer( const edm::ParameterSet& iConfig )
 }
 
 
-TestAnalyzer::~TestAnalyzer()
+TestMuonAnalyzer::~TestMuonAnalyzer()
 { 
   
   theTree->Write();
@@ -97,7 +98,7 @@ TestAnalyzer::~TestAnalyzer()
 
 
 void
-TestAnalyzer::analyze( const edm::Event& iEvent, const edm::EventSetup& iSetup )
+TestMuonAnalyzer::analyze( const edm::Event& iEvent, const edm::EventSetup& iSetup )
 {
 
    
@@ -110,44 +111,51 @@ TestAnalyzer::analyze( const edm::Event& iEvent, const edm::EventSetup& iSetup )
   edm::ESHandle<CSCGeometry> pCSC;
 
   iSetup.get<MuonGeometryRecord>().get( pDT );     
-//  iSetup.get<MuonGeometryRecord>().get( pCSC ); 
+  iSetup.get<MuonGeometryRecord>().get( pCSC ); 
 
 
   // Now loop on detector units, and store position and orientation
-  for ( std::vector<DTChamber*>::const_iterator iGeomDet = pDT->chambers().begin();
-		iGeomDet != pDT->chambers().end(); iGeomDet++ )
-	{
-	  x      = (*iGeomDet)->position().x();
-	  y      = (*iGeomDet)->position().y();
-	  z      = (*iGeomDet)->position().z();
-	  phi    = (*iGeomDet)->surface().normalVector().phi();
-	  theta  = (*iGeomDet)->surface().normalVector().theta();
-	  length = (*iGeomDet)->surface().bounds().length();
-	  width  = (*iGeomDet)->surface().bounds().width();
-	  thick  = (*iGeomDet)->surface().bounds().thickness();
+  for ( std::vector<GeomDet*>::const_iterator iGeomDet = pDT->dets().begin();
+		iGeomDet != pDT->dets().end(); iGeomDet++ )
+	this->fillTree( *iGeomDet );
+  for ( std::vector<GeomDet*>::const_iterator iGeomDet = pCSC->dets().begin();
+		iGeomDet != pCSC->dets().end(); iGeomDet++ )
+	this->fillTree( *iGeomDet );
 
-       std::cout << "x=" << x << ", y=" << y << ", theta=" << theta <<std::endl;
-
-	  double matrix[9] = { 
-		(*iGeomDet)->rotation().xx(),
-		(*iGeomDet)->rotation().xy(),
-		(*iGeomDet)->rotation().xz(),
-		(*iGeomDet)->rotation().yx(),
-		(*iGeomDet)->rotation().yy(),
-		(*iGeomDet)->rotation().yz(),
-		(*iGeomDet)->rotation().zx(),
-		(*iGeomDet)->rotation().zy(),
-		(*iGeomDet)->rotation().zz()
-	  };
-	  rot = new TRotMatrix( "rot", "rot", matrix );
-
-	  theTree->Fill();
-
-	}
-  
   edm::LogInfo("MuonAlignment") << "Done!";
 
 }
 
+
+//__________________________________________________________________________________________________
+void TestMuonAnalyzer::fillTree( const GeomDet* geomDet )
+{
+  Id_     = geomDet->geographicalId().rawId();
+  x      = geomDet->position().x();
+  y      = geomDet->position().y();
+  z      = geomDet->position().z();
+  phi    = geomDet->surface().normalVector().phi();
+  theta  = geomDet->surface().normalVector().theta();
+  length = geomDet->surface().bounds().length();
+  width  = geomDet->surface().bounds().width();
+  thick  = geomDet->surface().bounds().thickness();
+
+  double matrix[9] = { 
+	geomDet->rotation().xx(),
+	geomDet->rotation().xy(),
+	geomDet->rotation().xz(),
+	geomDet->rotation().yx(),
+	geomDet->rotation().yy(),
+	geomDet->rotation().yz(),
+	geomDet->rotation().zx(),
+	geomDet->rotation().zy(),
+	geomDet->rotation().zz()
+  };
+  rot = new TRotMatrix( "rot", "rot", matrix );
+
+  theTree->Fill();
+
+}
+
 //define this as a plug-in
-DEFINE_FWK_MODULE(TestAnalyzer)
+DEFINE_FWK_MODULE(TestMuonAnalyzer)
