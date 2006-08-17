@@ -6,10 +6,11 @@
 <use name=FWCore/Framework> 
 <use name=FWCore/MessageLogger> 
 
-<library file=TestMuonAnalyzer.cpp name=testMuonAlignment>
-  <flags SEAL_PLUGIN_NAME="testMuonAlignment">
-</library>
 
 <library file=TestMuonHierarchy.cpp name=testMuonHierarchy>
   <flags SEAL_PLUGIN_NAME="testMuonHierarchy">
+</library>
+
+<library file=TestMisalign.cpp name=testMuonMisalign>
+  <flags SEAL_PLUGIN_NAME="testMuonMisalign">
 </library>

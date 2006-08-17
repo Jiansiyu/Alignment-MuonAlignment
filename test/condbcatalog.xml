@@ -2,7 +2,7 @@
 <!-- Edited By POOL -->
 <!DOCTYPE POOLFILECATALOG SYSTEM "InMemory">
 <POOLFILECATALOG>
-  <File ID="02ED8DF1-0F13-DB11-BA13-000E0C5CE043">
+  <File ID="E2B04981-422D-DB11-8388-000E0C4D395D">
     <physical>
       <pfn filetype="POOL_RDBMS" name="sqlite_file:Alignments.db"/>
     </physical>
