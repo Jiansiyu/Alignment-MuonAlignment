@@ -1,0 +1,95 @@
+//
+// This file contains all scenarios as blocks
+// A block can be included in a config file as:
+//   using <block label>
+// in any place where a PSet could be used.
+//
+// See corresponding .cff files for examples.
+
+
+// -----------------------------------------------------------------------
+// General settings common to all scenarios
+block MisalignmentScenarioSettings = 
+  {
+	untracked bool dumpBefore  = false  // This is actually the default
+	untracked bool dumpAfter   = false  // This is actually the default
+	untracked bool saveToDbase = false  // This is actually the default
+
+	string distribution = 'gaussian'
+	int32 seed = 1234567
+	bool  setError = true
+  }
+
+
+// -----------------------------------------------------------------------
+// Example scenario (dummy movements)
+block MuonExampleScenario =
+  {
+ 
+ 	using MisalignmentScenarioSettings	
+
+        // -- Barrel -- //
+        PSet DTBarrels = {
+          double phiZ = 0.1
+        }
+
+        // -- Endcaps -- //
+        PSet CSCEndcaps = {
+          double phiZ = 0.1
+        }
+ 
+  }
+
+
+// -----------------------------------------------------------------------
+//  "Misalignment" scenario without misalignment...
+block NoMovementsScenario =
+{
+  using MisalignmentScenarioSettings 
+}
+
+
+// -----------------------------------------------------------------------
+// -----------------------------------------------------------------------
+// Short term misalignment scenario (as interpreted from AN-2005-036)
+//
+// Units: centimeter and radian 
+//
+block MuonSurveyOnlyScenario =
+  {
+
+	using MisalignmentScenarioSettings
+
+	// -- Barrel -- //
+        PSet DTWheels = {
+
+	  string distribution = 'gaussian'
+	  double scale = 1.0
+	  double dX = 0.25 double dY = 0.25 double dZ = 0.25
+	  double phiZ = 0.00025
+
+	  PSet DTChambers = {
+		double dX = 0.1 double dY = 0.1 double dZ = 0.1
+		double phiZ = 0.0005
+	  }
+
+        }
+	   
+	// -- Endcaps -- //
+        PSet CSCStations = {
+
+	  string distribution = 'gaussian'
+	  double scale = 1.0
+	  double dX = 0.25 double dY = 0.25 double dZ = 0.25
+	  double phiZ = 0.00025
+
+	  PSet CSCChambers = {
+		double dX = 0.1 double dY = 0.1 double dZ = 0.1
+		double phiZ = 0.0005
+        }
+   
+   
+
+  }
+  
+  

@@ -1,0 +1,17 @@
+//
+// Example misalignment scenario
+// 
+// Include this file to produce a misaligned muon geometry
+//
+// This replaces: Geometry/DTGeometry/data/dtGeometry.cfi
+//                Geometry/CSCGeometry/data/cscGeometry.cfi
+//
+
+include "Alignment/MuonAlignment/data/Scenarios.cff"
+
+es_module MisalignedMuon = MisalignedMuonESProducer
+ {
+
+   using ExampleScenario
+
+ }
