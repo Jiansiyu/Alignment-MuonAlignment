@@ -14,3 +14,15 @@
 <library file=TestMisalign.cpp name=testMuonMisalign>
   <flags SEAL_PLUGIN_NAME="testMuonMisalign">
 </library>
+
+<library file=TestReader.cpp name=testMuonReader>
+  <flags SEAL_PLUGIN_NAME="testMuonReader">
+</library>
+
+<library file=TestRotation.cpp name=testMuonRotation>
+  <flags SEAL_PLUGIN_NAME="testMuonRotation">
+</library>
+
+<library file=TestTranslation.cpp name=testMuonTranslation>
+  <flags SEAL_PLUGIN_NAME="testMuonTranslation">
+</library>
