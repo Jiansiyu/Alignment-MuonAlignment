@@ -1,0 +1,14 @@
+# AlCaReco for muon based alignment using ZMuMu events
+
+  block OutCSA06ZMuMu_muon = {
+    untracked vstring outputCommands = { 
+	"drop *" ,
+	"keep dt1DRecHits", "keep dt2DSegments", "keep dt4DSegments", 
+	"keep csc2DRecHits", "keep cscSegments", "keep rpcRecHits"
+    }
+    untracked PSet SelectEvents = {
+      vstring SelectEvents = { "pathCSA06ZMuMu_muon" }
+    }
+
+  }
+
