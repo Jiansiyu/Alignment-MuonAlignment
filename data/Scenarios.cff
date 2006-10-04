@@ -86,6 +86,8 @@ block MuonSurveyOnlyScenario =
 	  PSet CSCChambers = {
 		double dX = 0.1 double dY = 0.1 double dZ = 0.1
 		double phiZ = 0.0005
+          }
+
         }
    
    
