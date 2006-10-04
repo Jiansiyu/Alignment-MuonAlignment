@@ -1,0 +1,7 @@
+# AlCaReco for muon based alignment using ZMuMu events
+
+ module dummyProcessor = StopAfterNEvents { int32 maxEvents = 999999 }
+
+ sequence seqCSA06ZMuMu_muon = { dummyProcessor }
+
+
