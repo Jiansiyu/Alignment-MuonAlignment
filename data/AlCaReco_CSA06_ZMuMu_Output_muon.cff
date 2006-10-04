@@ -3,12 +3,14 @@
   block OutCSA06ZMuMu_muon = {
     untracked vstring outputCommands = { 
 	"drop *" ,
-	"keep dt1DRecHits", "keep dt2DSegments", "keep dt4DSegments", 
-	"keep csc2DRecHits", "keep cscSegments", "keep rpcRecHits"
+	"keep *_dt1DRecHits_*_*", 
+        "keep *_dt2DSegments_*_*", 
+        "keep *_dt4DSegments_*_*", 
+	"keep *_csc2DRecHits_*_*", 
+        "keep *_cscSegments_*_*", 
+        "keep *_rpcRecHits_*_*"
     }
     untracked PSet SelectEvents = {
       vstring SelectEvents = { "pathCSA06ZMuMu_muon" }
     }
-
   }
-
