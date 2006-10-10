@@ -26,3 +26,9 @@
 <library file=TestTranslation.cpp name=testMuonTranslation>
   <flags SEAL_PLUGIN_NAME="testMuonTranslation">
 </library>
+
+<library file=TestAlign.cpp name=testMuonAlign>
+  <flags SEAL_PLUGIN_NAME="testMuonAlign">
+</library>
+
+
