@@ -31,4 +31,7 @@
   <flags SEAL_PLUGIN_NAME="testMuonAlign">
 </library>
 
+<library file=MuonAlignmentDBCopy.cpp name=muonAlignmentDBCopy>
+  <flags SEAL_PLUGIN_NAME="muonAlignmentDBCopy">
+</library>
 
