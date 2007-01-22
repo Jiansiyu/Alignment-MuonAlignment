@@ -5,33 +5,42 @@
        
        =================================================
        
-%MSG-i DDLParser:  02-Oct-2006 10:17:45 XYZ pre-events
+%MSG-i DDLParser:  22-Jan-2007 16:18:39 CET pre-events
 Start Parsing.  Validation is set off for the time being.
-%MSG-w EventSetupDependency:  AsciiOutputModule:print{ctor} 
-       02-Oct-2006 10:17:53 XYZ pre-events
-The EventSetup record TrackerDigiGeometryRecord depends on at least one Record 
- (TrackerAlignmentRcd) which is not present in the job.
- This may lead to failures during event processing.
-%MSG-i FwkReport:  main_input:source 02-Oct-2006 10:17:53 XYZ BeforeEvents
-Begin processing the 1th record. Run 1, Event 1
-%MSG-i MuonAlignment:  TestTranslation:prod 02-Oct-2006 10:17:53 XYZ 
-       Run: 1 Event: 1
-Starting!
-%MSG-i CSC:  TestTranslation:prod 02-Oct-2006 10:18:03 XYZ Run: 1 Event: 1
-CSCChamberSpecs: strips are modelled as RADIAL
+%MSG-e FwkJob:  AfterModuleConstruction 22-Jan-2007 16:18:50 CET pre-events
+<FrameworkError ExitStatus="8001" Type="CMSException" >
+  cms::Exception caught in cmsRun
+---- EventSetupConflict BEGIN
+two EventSetup Producers want to deliver type="DTGeometry" label=""
+ from record MuonGeometryRecord. The two providers are 
+1) type="DTGeometryESModule" label=""
+2) type="MisalignedMuonESProducer" label="MisalignedMuon"
+Please either
+   remove one of these Producers
+   or find a way of configuring one of them so it does not deliver this data
+   or use an es_prefer statement in the configuration to choose one.
+---- EventSetupConflict END
 
-%MSG-i CSC:  TestTranslation:prod 02-Oct-2006 10:18:03 XYZ Run: 1 Event: 1
-CSCChamberSpecs: in ME1a use GANGED strips
+</FrameworkError>
 
-%MSG-i CSC:  TestTranslation:prod 02-Oct-2006 10:18:03 XYZ Run: 1 Event: 1
-CSCChamberSpecs: in ME1a use  WIRES & STRIPS
+%MSG-s CMSException:  AfterModuleConstruction 22-Jan-2007 16:18:50 CET 
+       pre-events
+cms::Exception caught in cmsRun
+---- EventSetupConflict BEGIN
+two EventSetup Producers want to deliver type="DTGeometry" label=""
+ from record MuonGeometryRecord. The two providers are 
+1) type="DTGeometryESModule" label=""
+2) type="MisalignedMuonESProducer" label="MisalignedMuon"
+Please either
+   remove one of these Producers
+   or find a way of configuring one of them so it does not deliver this data
+   or use an es_prefer statement in the configuration to choose one.
+---- EventSetupConflict END
 
-%MSG-i CSC:  TestTranslation:prod 02-Oct-2006 10:18:03 XYZ Run: 1 Event: 1
-CSCChamberSpecs: wires are modelled using REAL wire geometry 
 
-%MSG-i AlignableMuon:  TestTranslation:prod 02-Oct-2006 10:18:04 XYZ 
-       Run: 1 Event: 1
-Constructing alignable muon objects DONE
-%MSG-i MuonAlignment:  TestTranslation:prod 02-Oct-2006 10:18:04 XYZ 
-       Run: 1 Event: 1
-Done!
+%MSG-i FwkJob:  AfterModuleConstruction 22-Jan-2007 16:18:50 CET pre-events
+
+<GeneratorInfo>
+%MSG-i FwkJob:  AfterModuleConstruction 22-Jan-2007 16:18:50 CET pre-events
+
+</GeneratorInfo>
