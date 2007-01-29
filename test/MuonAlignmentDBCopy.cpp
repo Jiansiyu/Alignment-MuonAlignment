@@ -34,7 +34,7 @@ class  MuonAlignmentDBCopy : public edm::EDAnalyzer {
   theCSCErrorRecordName( "CSCAlignmentErrors" )
   {};
 
-  ~MuonAlignmentDBCopy() ;
+  ~MuonAlignmentDBCopy() {}
 
   virtual void analyze( const edm::Event& evt, const edm::EventSetup& evtSetup);
 
