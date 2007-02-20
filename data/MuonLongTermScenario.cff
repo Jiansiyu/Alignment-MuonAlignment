@@ -1,5 +1,5 @@
 //
-// Survey Only misalignment scenario (see AN-2005-036)
+// Long term misalignment scenario (see AN-2005-036)
 // 
 // Include this file to produce a misaligned muon geometry
 //
@@ -9,6 +9,6 @@ include "Alignment/MuonAlignment/data/Scenarios.cff"
 es_module MisalignedMuon = MisalignedMuonESProducer
  {
 
-   using MuonSurveyOnlyScenario
+   using MuonLongTermScenario
 
  }

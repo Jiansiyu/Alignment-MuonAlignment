@@ -50,8 +50,7 @@ block NoMovementsScenario =
 
 
 // -----------------------------------------------------------------------
-// -----------------------------------------------------------------------
-// Short term misalignment scenario (as interpreted from AN-2005-036)
+// Survey Only misalignment scenario (as interpreted from AN-2005-036)
 //
 // Units: centimeter and radian 
 //
@@ -86,6 +85,98 @@ block MuonSurveyOnlyScenario =
 	  PSet CSCChambers = {
 		double dX = 0.1 double dY = 0.1 double dZ = 0.1
 		double phiZ = 0.0005
+          }
+
+        }
+   
+   
+
+  }
+  
+  
+
+// -----------------------------------------------------------------------
+// Muon Short Term misalignment scenario (as interpreted from AN-2005-036)
+//
+// Units: centimeter and radian 
+//
+block MuonShortTermScenario =
+  {
+
+	using MisalignmentScenarioSettings
+
+	// -- Barrel -- //
+        PSet DTWheels = {
+
+	  string distribution = 'gaussian'
+	  double scale = 1.0
+	  double dX = 0.1 double dY = 0.1 double dZ = 0.1
+	  double phiZ = 0.0002
+
+	  PSet DTChambers = {
+		double dX = 0.1 double dY = 0.1 double dZ = 0.1
+		double phiZ = 0.00025
+	  }
+
+        }
+	   
+	// -- Endcaps -- //
+        PSet CSCStations = {
+
+	  string distribution = 'gaussian'
+	  double scale = 1.0
+	  double dX = 0.1 double dY = 0.1 double dZ = 0.1
+	  double phiZ = 0.0002
+
+	  PSet CSCChambers = {
+		double dX = 0.1 double dY = 0.1 double dZ = 0.1
+		double phiZ = 0.0005
+          }
+
+        }
+   
+   
+
+  }
+  
+  
+
+// -----------------------------------------------------------------------
+// Muon Long Term misalignment scenario (as interpreted from AN-2005-036)
+//
+// Units: centimeter and radian 
+//
+block MuonLongTermScenario =
+  {
+
+	using MisalignmentScenarioSettings
+
+	// -- Barrel -- //
+        PSet DTWheels = {
+
+	  string distribution = 'gaussian'
+	  double scale = 1.0
+	  double dX = 0.02 double dY = 0.02 double dZ = 0.02
+	  double phiZ = 0.00004
+
+	  PSet DTChambers = {
+		double dX = 0.02 double dY = 0.02 double dZ = 0.02
+		double phiZ = 0.00005
+	  }
+
+        }
+	   
+	// -- Endcaps -- //
+        PSet CSCStations = {
+
+	  string distribution = 'gaussian'
+	  double scale = 1.0
+	  double dX = 0.02 double dY = 0.02 double dZ = 0.02
+	  double phiZ = 0.00004
+
+	  PSet CSCChambers = {
+		double dX = 0.02 double dY = 0.02 double dZ = 0.04
+		double phiZ = 0.0001
           }
 
         }
