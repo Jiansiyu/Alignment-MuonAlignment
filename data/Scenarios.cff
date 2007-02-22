@@ -60,7 +60,7 @@ block MuonSurveyOnlyScenario =
 	using MisalignmentScenarioSettings
 
 	// -- Barrel -- //
-        PSet DTWheels = {
+        PSet DTBarrels = {
 
 	  string distribution = 'gaussian'
 	  double scale = 1.0
@@ -75,7 +75,7 @@ block MuonSurveyOnlyScenario =
         }
 	   
 	// -- Endcaps -- //
-        PSet CSCStations = {
+        PSet CSCEndcaps = {
 
 	  string distribution = 'gaussian'
 	  double scale = 1.0
@@ -106,7 +106,7 @@ block MuonShortTermScenario =
 	using MisalignmentScenarioSettings
 
 	// -- Barrel -- //
-        PSet DTWheels = {
+        PSet DTBarrels = {
 
 	  string distribution = 'gaussian'
 	  double scale = 1.0
@@ -121,7 +121,7 @@ block MuonShortTermScenario =
         }
 	   
 	// -- Endcaps -- //
-        PSet CSCStations = {
+        PSet CSCEndcaps = {
 
 	  string distribution = 'gaussian'
 	  double scale = 1.0
@@ -152,7 +152,7 @@ block MuonLongTermScenario =
 	using MisalignmentScenarioSettings
 
 	// -- Barrel -- //
-        PSet DTWheels = {
+        PSet DTBarrels = {
 
 	  string distribution = 'gaussian'
 	  double scale = 1.0
@@ -167,7 +167,7 @@ block MuonLongTermScenario =
         }
 	   
 	// -- Endcaps -- //
-        PSet CSCStations = {
+        PSet CSCEndcaps = {
 
 	  string distribution = 'gaussian'
 	  double scale = 1.0
