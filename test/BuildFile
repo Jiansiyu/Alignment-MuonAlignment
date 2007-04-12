@@ -8,31 +8,31 @@
 
 
 <library file=TestMuonHierarchy.cpp name=testMuonHierarchy>
-  <flags SEAL_PLUGIN_NAME="testMuonHierarchy">
+  <flags EDM_PLUGIN=1>
 </library>
 
 <library file=TestMisalign.cpp name=testMuonMisalign>
-  <flags SEAL_PLUGIN_NAME="testMuonMisalign">
+  <flags EDM_PLUGIN=1>
 </library>
 
 <library file=TestReader.cpp name=testMuonReader>
-  <flags SEAL_PLUGIN_NAME="testMuonReader">
+  <flags EDM_PLUGIN=1>
 </library>
 
 <library file=TestRotation.cpp name=testMuonRotation>
-  <flags SEAL_PLUGIN_NAME="testMuonRotation">
+  <flags EDM_PLUGIN=1>
 </library>
 
 <library file=TestTranslation.cpp name=testMuonTranslation>
-  <flags SEAL_PLUGIN_NAME="testMuonTranslation">
+  <flags EDM_PLUGIN=1>
 </library>
 
 <library file=TestAlign.cpp name=testMuonAlign>
-  <flags SEAL_PLUGIN_NAME="testMuonAlign">
+  <flags EDM_PLUGIN=1>
 </library>
 
 <library file=MuonAlignmentDBCopy.cpp name=muonAlignmentDBCopy>
-  <flags SEAL_PLUGIN_NAME="muonAlignmentDBCopy">
+  <flags EDM_PLUGIN=1>
 </library>
 
 
