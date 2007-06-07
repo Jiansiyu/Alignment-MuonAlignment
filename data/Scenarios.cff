@@ -54,11 +54,10 @@ block NoMovementsScenario =
 
 
 // -----------------------------------------------------------------------
-// Survey Only misalignment scenario (as interpreted from AN-2005-036)
-// Survey Only has been tuned in order to produce the 10 inverse pb
+// Muon 10 inverse pb scenario (as interpreted from AN-2005-036)
 // Units: centimeter and radian 
 
-block MuonSurveyOnlyScenario =
+block Muon10InversepbScenario =
  {
 
    using MisalignmentScenarioSettings
@@ -95,11 +94,11 @@ block MuonSurveyOnlyScenario =
  
 
 // -----------------------------------------------------------------------
-// Muon Short Term misalignment scenario with sector movements(as interpreted from AN-2005-036)
+// Muon 100 inverse pb scenario (as interpreted from AN-2005-036)
 //
 // Units: centimeter and radian
 //
-block MuonShortTermScenario =
+block Muon100InversepbScenario =
  {
 
    using MisalignmentScenarioSettings
@@ -143,7 +142,100 @@ block MuonShortTermScenario =
      double phiZ = 0.00025 double phiY = 0.00025 double phiX = 0.00025
    }   
  }
+
+
+
  
+// -----------------------------------------------------------------------
+// Survey Only misalignment scenario (as interpreted from AN-2005-036)
+//
+// Units: centimeter and radian 
+//
+block MuonSurveyOnlyScenario =
+  {
+
+	using MisalignmentScenarioSettings
+
+	// -- Barrel -- //
+        PSet DTBarrels = {
+
+	  string distribution = 'gaussian'
+	  double scale = 1.0
+	  double dX = 0.25 double dY = 0.25 double dZ = 0.25
+	  double phiZ = 0.00025
+
+	  PSet DTChambers = {
+		double dX = 0.1 double dY = 0.1 double dZ = 0.1
+		double phiZ = 0.0005
+	  }
+
+        }
+	   
+	// -- Endcaps -- //
+        PSet CSCEndcaps = {
+
+	  string distribution = 'gaussian'
+	  double scale = 1.0
+	  double dX = 0.25 double dY = 0.25 double dZ = 0.25
+	  double phiZ = 0.00025
+
+	  PSet CSCChambers = {
+		double dX = 0.1 double dY = 0.1 double dZ = 0.1
+		double phiZ = 0.0005
+          }
+
+        }
+   
+   
+
+  }
+  
+  
+
+// -----------------------------------------------------------------------
+// Muon Short Term misalignment scenario (as interpreted from AN-2005-036)
+//
+// Units: centimeter and radian 
+//
+block MuonShortTermScenario =
+  {
+
+	using MisalignmentScenarioSettings
+
+	// -- Barrel -- //
+        PSet DTBarrels = {
+
+	  string distribution = 'gaussian'
+	  double scale = 1.0
+	  double dX = 0.1 double dY = 0.1 double dZ = 0.1
+	  double phiZ = 0.0002
+
+	  PSet DTChambers = {
+		double dX = 0.1 double dY = 0.1 double dZ = 0.1
+		double phiZ = 0.00025
+	  }
+
+        }
+	   
+	// -- Endcaps -- //
+        PSet CSCEndcaps = {
+
+	  string distribution = 'gaussian'
+	  double scale = 1.0
+	  double dX = 0.1 double dY = 0.1 double dZ = 0.1
+	  double phiZ = 0.0002
+
+	  PSet CSCChambers = {
+		double dX = 0.1 double dY = 0.1 double dZ = 0.1
+		double phiZ = 0.0005
+          }
+
+        }
+   
+   
+
+  }
+  
 
 // -----------------------------------------------------------------------
 // Muon Long Term misalignment scenario (as interpreted from AN-2005-036)
