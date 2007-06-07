@@ -23,21 +23,24 @@ block MisalignmentScenarioSettings =
 
 // -----------------------------------------------------------------------
 // Example scenario (dummy movements)
-block MuonExampleScenario =
+block ExampleScenario =
   {
- 
  	using MisalignmentScenarioSettings	
-
-        // -- Barrel -- //
-        PSet DTBarrels = {
-          double phiZ = 0.1
+        PSet Muons = {
+            string distribution = 'gaussian'
+	    double scale = 1.0
+	    double dX = 0.0 double dY = 0 double dZ = 0
+	    double phiZ = 0.000 double phiY = 0 double phiX = 0
         }
-
-        // -- Endcaps -- //
-        PSet CSCEndcaps = {
-          double phiZ = 0.1
+        PSet DTSectors = {
+            string distribution = 'gaussian'
+	    double scale = 1.0
+	    double dX = 0.0 double dY = 0 double dZ = 0
+	    double phiZ = 0.001 double phiY = 0 double phiX = 0
         }
- 
+        
+
+
   }
 
 
@@ -49,97 +52,98 @@ block NoMovementsScenario =
 }
 
 
+
 // -----------------------------------------------------------------------
 // Survey Only misalignment scenario (as interpreted from AN-2005-036)
-//
+// Survey Only has been tuned in order to produce the 10 inverse pb
 // Units: centimeter and radian 
-//
+
 block MuonSurveyOnlyScenario =
-  {
+ {
 
-	using MisalignmentScenarioSettings
+   using MisalignmentScenarioSettings
 
-	// -- Barrel -- //
-        PSet DTBarrels = {
-
-	  string distribution = 'gaussian'
-	  double scale = 1.0
-	  double dX = 0.25 double dY = 0.25 double dZ = 0.25
-	  double phiZ = 0.00025
-
-	  PSet DTChambers = {
-		double dX = 0.1 double dY = 0.1 double dZ = 0.1
-		double phiZ = 0.0005
-	  }
-
-        }
-	   
-	// -- Endcaps -- //
-        PSet CSCEndcaps = {
-
-	  string distribution = 'gaussian'
-	  double scale = 1.0
-	  double dX = 0.25 double dY = 0.25 double dZ = 0.25
-	  double phiZ = 0.00025
-
-	  PSet CSCChambers = {
-		double dX = 0.1 double dY = 0.1 double dZ = 0.1
-		double phiZ = 0.0005
-          }
-
-        }
+   // -- Barrel -- //
+   PSet DTBarrels = {
+     string distribution = 'gaussian'
+     PSet DTWheels = {
+       double scale = 1.0
+       double dX = 0.25 double dY = 0.25 double dZ = 0.3
+       double phiZ = 0.00025 double phiY = 0.00025 double phiX = 0.00025
+       PSet DTChambers = {
+         double dX = 0.05 double dY = 0.05 double dZ = 0.05
+         double phiZ = 0.00025 double phiY = 0.00025 double phiX = 0.00025
+       }
+     }
+   }
    
-   
-
-  }
-  
-  
+   // -- Endcaps -- //
+   PSet CSCEndcaps = {
+     string distribution = 'gaussian'
+     PSet CSCStations = {
+       double scale = 1.0
+       double dX = 0.2 double dY = 0.2 double dZ = 0.5
+       double phiZ = 0.00025 double phiY = 0.00025 double phiX = 0.00025
+       PSet CSCChambers = {
+         double dX = 0.05 double dY = 0.05 double dZ = 0.05
+         double phiZ = 0.00025 double phiY = 0.00025 double phiX = 0.00025
+       }
+     }
+   }
+ }
+ 
+ 
 
 // -----------------------------------------------------------------------
-// Muon Short Term misalignment scenario (as interpreted from AN-2005-036)
+// Muon Short Term misalignment scenario with sector movements(as interpreted from AN-2005-036)
 //
-// Units: centimeter and radian 
+// Units: centimeter and radian
 //
 block MuonShortTermScenario =
-  {
+ {
 
-	using MisalignmentScenarioSettings
+   using MisalignmentScenarioSettings
 
-	// -- Barrel -- //
-        PSet DTBarrels = {
+   // -- All the muon system -- // 
+   PSet Muons = {
+     string distribution = 'gaussian'
+     double scale = 1.0
+     double dX = 0.1 double dY = 0.1 double dZ = 0.1
+     double phiZ = 0.00025 double phiY = 0.00025 double phiX = 0.00025
+   }
 
-	  string distribution = 'gaussian'
-	  double scale = 1.0
-	  double dX = 0.1 double dY = 0.1 double dZ = 0.1
-	  double phiZ = 0.0002
-
-	  PSet DTChambers = {
-		double dX = 0.1 double dY = 0.1 double dZ = 0.1
-		double phiZ = 0.00025
-	  }
-
-        }
-	   
-	// -- Endcaps -- //
-        PSet CSCEndcaps = {
-
-	  string distribution = 'gaussian'
-	  double scale = 1.0
-	  double dX = 0.1 double dY = 0.1 double dZ = 0.1
-	  double phiZ = 0.0002
-
-	  PSet CSCChambers = {
-		double dX = 0.1 double dY = 0.1 double dZ = 0.1
-		double phiZ = 0.0005
-          }
-
-        }
+   // -- Barrel -- //
+   PSet DTBarrels = {
+     PSet DTChambers = {
+       double scale = 1.0
+       double dX = 0.02 double dY = 0.02 double dZ = 0.02
+       double phiZ = 0.0001 double phiY = 0.0001 double phiX = 0.0001
+     }
+   }
+   // -- Endcaps -- //
+   PSet CSCEndcaps = {
+     PSet CSCChambers = {
+       double scale = 1.0
+       double dX = 0.02 double dY = 0.02 double dZ = 0.02
+       double phiZ = 0.0001 double phiY = 0.0001 double phiX = 0.0001
+     }
+   }
    
+   // -- Move DT Sectors -- //
+   PSet DTSectors = {
+     double scale = 1.0
+     double dX = 0.1 double dY = 0.1 double dZ = 0.1
+     double phiZ = 0.00025 double phiY = 0.00025 double phiX = 0.00025
+   }
    
-
-  }
-  
-  
+   // -- Move DT Sectors -- //
+   PSet CSCSectors = {
+     double scale = 1.0
+     double dX = 0.1 double dY = 0.1 double dZ = 0.1
+     double phiZ = 0.00025 double phiY = 0.00025 double phiX = 0.00025
+   }   
+ }
+ 
 
 // -----------------------------------------------------------------------
 // Muon Long Term misalignment scenario (as interpreted from AN-2005-036)
