@@ -67,6 +67,7 @@ block Muon10InversepbScenario =
      string distribution = 'gaussian'
      PSet DTWheels = {
        double scale = 1.0
+       double scaleError = 1.0
        double dX = 0.25 double dY = 0.25 double dZ = 0.3
        double phiZ = 0.00025 double phiY = 0.00025 double phiX = 0.00025
        PSet DTChambers = {
@@ -81,6 +82,7 @@ block Muon10InversepbScenario =
      string distribution = 'gaussian'
      PSet CSCStations = {
        double scale = 1.0
+       double scaleError = 1.0
        double dX = 0.2 double dY = 0.2 double dZ = 0.5
        double phiZ = 0.00025 double phiY = 0.00025 double phiX = 0.00025
        PSet CSCChambers = {
@@ -107,6 +109,7 @@ block Muon100InversepbScenario =
    PSet Muons = {
      string distribution = 'gaussian'
      double scale = 1.0
+     double scaleError = 1.0
      double dX = 0.1 double dY = 0.1 double dZ = 0.1
      double phiZ = 0.00025 double phiY = 0.00025 double phiX = 0.00025
    }
@@ -115,6 +118,7 @@ block Muon100InversepbScenario =
    PSet DTBarrels = {
      PSet DTChambers = {
        double scale = 1.0
+       double scaleError = 1.0
        double dX = 0.02 double dY = 0.02 double dZ = 0.02
        double phiZ = 0.0001 double phiY = 0.0001 double phiX = 0.0001
      }
@@ -123,6 +127,7 @@ block Muon100InversepbScenario =
    PSet CSCEndcaps = {
      PSet CSCChambers = {
        double scale = 1.0
+       double scaleError = 1.0
        double dX = 0.02 double dY = 0.02 double dZ = 0.02
        double phiZ = 0.0001 double phiY = 0.0001 double phiX = 0.0001
      }
@@ -131,6 +136,7 @@ block Muon100InversepbScenario =
    // -- Move DT Sectors -- //
    PSet DTSectors = {
      double scale = 1.0
+     double scaleError = 1.0
      double dX = 0.1 double dY = 0.1 double dZ = 0.1
      double phiZ = 0.00025 double phiY = 0.00025 double phiX = 0.00025
    }
@@ -138,6 +144,7 @@ block Muon100InversepbScenario =
    // -- Move DT Sectors -- //
    PSet CSCSectors = {
      double scale = 1.0
+     double scaleError = 1.0
      double dX = 0.1 double dY = 0.1 double dZ = 0.1
      double phiZ = 0.00025 double phiY = 0.00025 double phiX = 0.00025
    }   
