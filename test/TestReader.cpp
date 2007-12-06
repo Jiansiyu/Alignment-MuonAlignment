@@ -9,20 +9,16 @@
 // system include files
 #include <string>
 #include <TTree.h>
-#include <TFile.h>
 #include <TRotMatrix.h>
 
 // user include files
-#include "FWCore/Framework/interface/Frameworkfwd.h"
 #include "FWCore/MessageLogger/interface/MessageLogger.h"
 #include "FWCore/Framework/interface/EDAnalyzer.h"
 
-#include "FWCore/Framework/interface/Event.h"
 #include "FWCore/Framework/interface/EventSetup.h"
 #include "FWCore/Framework/interface/ESHandle.h"
 #include "FWCore/Framework/interface/MakerMacros.h"
 
-#include "FWCore/ParameterSet/interface/ParameterSet.h"
 
 #include "CondFormats/Alignment/interface/Alignments.h"
 #include "CondFormats/Alignment/interface/AlignTransform.h"

@@ -4,11 +4,12 @@
 /** \class MuonAlignment
  *  The MuonAlignment helper class for alignment jobs
  *
- *  $Date: 2007/01/26 19:39:41 $
- *  $Revision: 1.6 $
+ *  $Date: 2007/07/19 20:48:19 $
+ *  $Revision: 1.7 $
  *  \author Andre Sznajder - UERJ(Brazil)
  */
 #include "Alignment/MuonAlignment/interface/AlignableMuon.h"
+#include <FWCore/Framework/interface/Frameworkfwd.h> 
 #include "Alignment/CommonAlignment/interface/AlignableNavigator.h"
 
 class MuonAlignment{

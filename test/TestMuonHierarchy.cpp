@@ -24,8 +24,6 @@
 #include "FWCore/MessageLogger/interface/MessageLogger.h"
 
 #include "Geometry/Records/interface/MuonGeometryRecord.h"
-#include "Geometry/DTGeometryBuilder/src/DTGeometryBuilderFromDDD.h"
-#include "Geometry/CSCGeometryBuilder/src/CSCGeometryBuilderFromDDD.h"
 
 #include "Alignment/MuonAlignment/interface/AlignableMuon.h"
 #include "Alignment/CommonAlignment/interface/AlignableObjectId.h"

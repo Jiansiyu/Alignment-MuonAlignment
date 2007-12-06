@@ -4,16 +4,13 @@
 
 // Framework
 #include "FWCore/ServiceRegistry/interface/Service.h"
-#include "FWCore/ParameterSet/interface/ParameterSet.h"
 #include "FWCore/Framework/interface/EventSetup.h"
 #include "FWCore/Framework/interface/EDAnalyzer.h"
-#include "CondCore/DBCommon/interface/Exception.h"
 #include "FWCore/Framework/interface/MakerMacros.h"
 
 // Database
 #include "FWCore/Framework/interface/ESHandle.h"
 #include "CondCore/DBOutputService/interface/PoolDBOutputService.h"
-#include "FWCore/MessageLogger/interface/MessageLogger.h"
 
 // Alignment
 #include "CondFormats/Alignment/interface/Alignments.h"

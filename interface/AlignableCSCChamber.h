@@ -4,8 +4,8 @@
 /** \class AlignableCSCChamber
  *  The alignable muon CSC chamber.
  *
- *  $Date: 2006/08/04 20:18:50 $
- *  $Revision: 1.9 $
+ *  $Date: 2007/10/08 14:12:00 $
+ *  $Revision: 1.10 $
  *  \author Andre Sznajder - UERJ(Brazil)
  */
  
@@ -15,10 +15,8 @@
 #include <vector>
 
 #include "Geometry/CommonDetUnit/interface/GeomDet.h"
-#include "Geometry/CommonDetUnit/interface/GeomDetUnit.h"
 
 #include "Alignment/CommonAlignment/interface/AlignableDet.h"
-#include "Alignment/CommonAlignment/interface/AlignableObjectId.h"
 #include "Alignment/CommonAlignment/interface/AlignableComposite.h"
 
 /// A muon CSC Chamber( composite of AlignableDets )

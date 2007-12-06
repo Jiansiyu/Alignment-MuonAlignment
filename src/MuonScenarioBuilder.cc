@@ -1,7 +1,7 @@
 /** \file
  *
- *  $Date: 2007/01/12 09:47:42 $
- *  $Revision: 1.1 $
+ *  $Date: 2007/06/07 08:42:10 $
+ *  $Revision: 1.2 $
  *  \author Andre Sznajder - UERJ(Brazil)
  */
  
@@ -17,6 +17,9 @@
 // Alignment
 
 #include "Alignment/MuonAlignment/interface/MuonScenarioBuilder.h"
+#include "FWCore/ParameterSet/interface/ParameterSet.h" 
+#include "Alignment/CommonAlignment/interface/Alignable.h" 
+#include "DataFormats/MuonDetId/interface/CSCTriggerNumbering.h" 
 
 //__________________________________________________________________________________________________
 MuonScenarioBuilder::MuonScenarioBuilder( Alignable* alignable )

@@ -2,12 +2,7 @@
 #include <memory>
 
 // user include files
-#include "FWCore/Framework/interface/Frameworkfwd.h"
-#include "FWCore/Framework/interface/EDAnalyzer.h"
-#include "FWCore/Framework/interface/Event.h"
 #include "FWCore/Framework/interface/EventSetup.h"
-#include "FWCore/Framework/interface/MakerMacros.h"
-#include "FWCore/ParameterSet/interface/ParameterSet.h"
 
 // Conditions database
 #include "FWCore/ServiceRegistry/interface/Service.h"
@@ -19,8 +14,8 @@
 // Alignment
 #include "CondFormats/Alignment/interface/Alignments.h"
 #include "CondFormats/Alignment/interface/AlignmentErrors.h"
-#include "CondFormats/Alignment/interface/AlignmentSorter.h"
 #include "Alignment/MuonAlignment/interface/MuonAlignment.h"
+#include <FWCore/Framework/interface/ESHandle.h> 
 
 //____________________________________________________________________________________
 //

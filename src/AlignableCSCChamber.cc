@@ -1,12 +1,13 @@
 /** \file
  *
- *  $Date: 2006/08/04 20:18:51 $
- *  $Revision: 1.6 $
+ *  $Date: 2007/10/08 14:12:05 $
+ *  $Revision: 1.7 $
  *  \author Andre Sznajder - UERJ(Brazil)
  */
  
 #include "CondFormats/Alignment/interface/Alignments.h"
 #include "CondFormats/Alignment/interface/AlignmentErrors.h"
+#include "CLHEP/Vector/RotationInterfaces.h" 
 #include "DataFormats/TrackingRecHit/interface/AlignmentPositionError.h"
 #include "FWCore/Utilities/interface/Exception.h"
 
