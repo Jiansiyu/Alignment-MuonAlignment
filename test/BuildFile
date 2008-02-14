@@ -1,7 +1,7 @@
 <use name=root>
 <use name=Alignment/MuonAlignment>
 <use name=CondFormats/Alignment>
-<use name=CondFormats/DataRecord>
+<use name=CondFormats/AlignmentRecord>
 
 <use name=FWCore/Framework> 
 <use name=FWCore/MessageLogger> 
