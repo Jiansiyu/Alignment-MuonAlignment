@@ -156,6 +156,7 @@ block Muon100InversepbScenario =
 //----- New 0 inverse pb scenario for 2008 -----//
 //----------------------------------------------//
 block Muon0inversePbScenario2008 = {
+  using MisalignmentScenarioSettings	
 
   // -- Barrel -- //
   PSet DTBarrels = {
@@ -203,6 +204,8 @@ block Muon0inversePbScenario2008 = {
 //---- New 10 inverse pb scenario for 2008 ----//
 //---------------------------------------------//
 block Muon10inversePbScenario2008 = {
+  using MisalignmentScenarioSettings	
+
   // -- Barrel -- //
   PSet DTBarrels = {
     string distribution = 'gaussian'
@@ -257,6 +260,8 @@ block Muon10inversePbScenario2008 = {
 //---New 100 inverse pb scenario for 2008----//
 //-------------------------------------------//
 block Muon100inversePbScenario2008 = {
+  using MisalignmentScenarioSettings	
+
   // -- Barrel -- //
   PSet DTBarrels = {
     string distribution = 'gaussian'
