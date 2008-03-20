@@ -9,7 +9,7 @@
 
 // -----------------------------------------------------------------------
 // General settings common to all scenarios
-block MisalignmentScenarioSettings = 
+block MuonMisalignmentScenarioSettings = 
   {
 	untracked bool dumpBefore  = false  // This is actually the default
 	untracked bool dumpAfter   = false  // This is actually the default
@@ -25,7 +25,7 @@ block MisalignmentScenarioSettings =
 // Example scenario (dummy movements)
 block ExampleScenario =
   {
- 	using MisalignmentScenarioSettings	
+ 	using MuonMisalignmentScenarioSettings	
         PSet Muons = {
             string distribution = 'gaussian'
 	    double scale = 1.0
@@ -46,9 +46,9 @@ block ExampleScenario =
 
 // -----------------------------------------------------------------------
 //  "Misalignment" scenario without misalignment...
-block NoMovementsScenario =
+block MuonNoMovementsScenario =
 {
-  using MisalignmentScenarioSettings 
+  using MuonMisalignmentScenarioSettings 
 }
 
 
@@ -60,7 +60,7 @@ block NoMovementsScenario =
 block Muon10InversepbScenario =
  {
 
-   using MisalignmentScenarioSettings
+   using MuonMisalignmentScenarioSettings
 
    // -- Barrel -- //
    PSet DTBarrels = {
@@ -103,7 +103,7 @@ block Muon10InversepbScenario =
 block Muon100InversepbScenario =
  {
 
-   using MisalignmentScenarioSettings
+   using MuonMisalignmentScenarioSettings
 
    // -- All the muon system -- // 
    PSet Muons = {
@@ -156,7 +156,7 @@ block Muon100InversepbScenario =
 //----- New 0 inverse pb scenario for 2008 -----//
 //----------------------------------------------//
 block Muon0inversePbScenario2008 = {
-  using MisalignmentScenarioSettings	
+  using MuonMisalignmentScenarioSettings	
 
   // -- Barrel -- //
   PSet DTBarrels = {
@@ -204,7 +204,7 @@ block Muon0inversePbScenario2008 = {
 //---- New 10 inverse pb scenario for 2008 ----//
 //---------------------------------------------//
 block Muon10inversePbScenario2008 = {
-  using MisalignmentScenarioSettings	
+  using MuonMisalignmentScenarioSettings	
 
   // -- Barrel -- //
   PSet DTBarrels = {
@@ -260,7 +260,7 @@ block Muon10inversePbScenario2008 = {
 //---New 100 inverse pb scenario for 2008----//
 //-------------------------------------------//
 block Muon100inversePbScenario2008 = {
-  using MisalignmentScenarioSettings	
+  using MuonMisalignmentScenarioSettings	
 
   // -- Barrel -- //
   PSet DTBarrels = {
@@ -321,7 +321,7 @@ block Muon100inversePbScenario2008 = {
 block MuonSurveyOnlyScenario =
   {
 
-	using MisalignmentScenarioSettings
+	using MuonMisalignmentScenarioSettings
 
 	// -- Barrel -- //
         PSet DTBarrels = {
@@ -367,7 +367,7 @@ block MuonSurveyOnlyScenario =
 block MuonShortTermScenario =
   {
 
-	using MisalignmentScenarioSettings
+	using MuonMisalignmentScenarioSettings
 
 	// -- Barrel -- //
         PSet DTBarrels = {
@@ -412,7 +412,7 @@ block MuonShortTermScenario =
 block MuonLongTermScenario =
   {
 
-	using MisalignmentScenarioSettings
+	using MuonMisalignmentScenarioSettings
 
 	// -- Barrel -- //
         PSet DTBarrels = {
