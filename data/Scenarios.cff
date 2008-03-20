@@ -9,7 +9,7 @@
 
 // -----------------------------------------------------------------------
 // General settings common to all scenarios
-block MisalignmentScenarioSettings = 
+block MuonMisalignmentScenarioSettings = 
   {
 	untracked bool dumpBefore  = false  // This is actually the default
 	untracked bool dumpAfter   = false  // This is actually the default
@@ -25,7 +25,7 @@ block MisalignmentScenarioSettings =
 // Example scenario (dummy movements)
 block ExampleScenario =
   {
- 	using MisalignmentScenarioSettings	
+ 	using MuonMisalignmentScenarioSettings	
         PSet Muons = {
             string distribution = 'gaussian'
 	    double scale = 1.0
@@ -46,9 +46,9 @@ block ExampleScenario =
 
 // -----------------------------------------------------------------------
 //  "Misalignment" scenario without misalignment...
-block NoMovementsScenario =
+block MuonNoMovementsScenario =
 {
-  using MisalignmentScenarioSettings 
+  using MuonMisalignmentScenarioSettings 
 }
 
 
@@ -60,7 +60,7 @@ block NoMovementsScenario =
 block Muon10InversepbScenario =
  {
 
-   using MisalignmentScenarioSettings
+   using MuonMisalignmentScenarioSettings
 
    // -- Barrel -- //
    PSet DTBarrels = {
@@ -103,7 +103,7 @@ block Muon10InversepbScenario =
 block Muon100InversepbScenario =
  {
 
-   using MisalignmentScenarioSettings
+   using MuonMisalignmentScenarioSettings
 
    // -- All the muon system -- // 
    PSet Muons = {
@@ -152,6 +152,166 @@ block Muon100InversepbScenario =
 
 
 
+//----------------------------------------------//
+//----- New 0 inverse pb scenario for 2008 -----//
+//----------------------------------------------//
+block Muon0inversePbScenario2008 = {
+  using MuonMisalignmentScenarioSettings	
+
+  // -- Barrel -- //
+  PSet DTBarrels = {
+    string distribution = 'gaussian'
+    PSet DTWheels = {
+      double scale = 1.0
+      double scaleError = 1.0
+      double dX = 0.1 double dY = 0.1 double dZ = 0.3
+      double phiZ = 0.001 double phiY = 0.0015 double phiX = 0.0015
+      PSet DTChambers = {
+        double scale = 1.0
+        double scaleError = 1.0
+        double dXlocal = 0.07 double dYlocal = 0.1 double dZlocal = 0.1
+        double phiZlocal = 0.00007 double phiYlocal = 0.00007 double phiXlocal = 0.00005
+	    }
+	}
+    }
+  // -- Endcaps -- //
+  PSet CSCEndcaps = {
+    string distribution = 'gaussian'
+    PSet CSCStations = {
+      double scale = 1.0
+      double scaleError = 1.0
+      double dX = 0.1 double dY = 0.1 double dZ = 0.3
+      double phiZ = 0.0005 double phiY = 0.001 double phiX = 0.001
+      PSet CSCRings = {
+        double scale = 1.0
+        double scaleError = 1.0
+        double dX = 0.04 double dY = 0.04 double dZ = 0.04
+        double phiZ = 0.0003 double phiY = 0.0005 double phiX = 0.0005
+        PSet CSCChambers = {
+          double scale = 1.0
+          double scaleError = 1.0
+          double dXlocal = 0.07 double dYlocal = 0.15 double dZlocal = 0.3
+          double phiZlocal = 0.0005 double phiYlocal = 0.001 double phiXlocal = 0.001
+		}
+	    }
+	}
+    }
+}
+//------- End of 0 inverse pb scenario 2008 ------//
+
+
+//---------------------------------------------//
+//---- New 10 inverse pb scenario for 2008 ----//
+//---------------------------------------------//
+block Muon10inversePbScenario2008 = {
+  using MuonMisalignmentScenarioSettings	
+
+  // -- Barrel -- //
+  PSet DTBarrels = {
+    string distribution = 'gaussian'
+    PSet DTWheels = {
+      double scale = 1.0
+      double scaleError = 1.0
+      double dX = 0.07 double dY = 0.07 double dZ = 0.1
+      double phiZ = 0.0005 double phiY = 0.0007 double phiX = 0.0007
+      PSet DTChambers = {
+        double scale = 1.0
+        double scaleError = 1.0
+        double dXlocal = 0.07 double dYlocal = 0.1 double dZlocal = 0.1
+        double phiZlocal = 0.00007 double phiYlocal = 0.00007 double phiXlocal = 0.00005
+	    }
+	}
+    }
+  // -- Endcaps -- //
+  PSet CSCEndcaps = {
+    string distribution = 'gaussian'
+    PSet CSCRings = {
+      double scale = 1.0
+      double scaleError = 1.0
+      double dX = 0.05 double dY = 0.07 double dZ = 0.3
+      double phiZ = 0.0005 double phiY = 0.0007 double phiX = 0.0007
+      PSet CSCChambers = {
+        double scale = 1.0
+        double scaleError = 1.0
+        double dXlocal = 0.05 double dYlocal = 0.1 double dZlocal = 0.2
+        double phiZlocal = 0.0003 double phiYlocal = 0.0005 double phiXlocal = 0.0007
+	    }
+	}
+  // -- Move DT Sectors -- //
+  PSet DTSectors = {
+    double scale = 1.0
+    double scaleError = 1.0
+    double dX = 0.05 double dY = 0.05 double dZ = 0.1
+    double phiZ = 0.0001 double phiY = 0.00005 double phiX = 0.00005
+	}
+  // -- Move CSC Sectors -- //
+  PSet CSCSectors = {
+    double scale = 1.0
+    double scaleError = 1.0
+    double dX = 0.05 double dY = 0.05 double dZ = 0.05
+    double phiZ = 0.00005 double phiY = 0.00005 double phiX = 0.00005
+	}
+    }
+}
+//------- End of 10 inverse pb scenario 2008 ------//
+
+
+//-------------------------------------------//
+//---New 100 inverse pb scenario for 2008----//
+//-------------------------------------------//
+block Muon100inversePbScenario2008 = {
+  using MuonMisalignmentScenarioSettings	
+
+  // -- Barrel -- //
+  PSet DTBarrels = {
+    string distribution = 'gaussian'
+    PSet DTWheels = {
+      double scale = 1.0
+      double scaleError = 1.0
+      double dX = 0.03 double dY = 0.03 double dZ = 0.05
+      double phiZ = 0.00015 double phiY = 0.0002 double phiX = 0.0002
+      PSet DTChambers = {
+        double scale = 1.0
+        double scaleError = 1.0
+        double dXlocal = 0.05 double dYlocal = 0.07 double dZlocal = 0.1
+        double phiZlocal = 0.00007 double phiYlocal = 0.00007 double phiXlocal = 0.00005
+		}
+	    }
+	}
+  // -- Endcaps -- //
+  PSet CSCEndcaps = {
+    string distribution = 'gaussian'
+    PSet CSCRings = {
+      double scale = 1.0
+      double scaleError = 1.0
+      double dX = 0.02 double dY = 0.05 double dZ = 0.3
+      double phiZ = 0.0002 double phiY = 0.0005 double phiX = 0.001
+      PSet CSCChambers = {
+        double scale = 1.0
+        double scaleError = 1.0
+        double dXlocal = 0.05 double dYlocal = 0.15 double dZlocal = 0.3
+        double phiZlocal = 0.0001 double phiYlocal = 0.0003 double phiXlocal = 0.0005
+		}
+	    }
+  // -- Move DT Sectors -- //
+  PSet DTSectors = {
+    double scale = 1.0
+    double scaleError = 1.0
+    double dX = 0.05 double dY = 0.05 double dZ = 0.1
+    double phiZ = 0.0001 double phiY = 0.00005 double phiX = 0.00005
+	    }
+  // -- Move CSC Sectors -- //
+  PSet CSCSectors = {
+    double scale = 1.0
+    double scaleError = 1.0
+    double dX = 0.05 double dY = 0.05 double dZ = 0.05
+    double phiZ = 0.00005 double phiY = 0.00005 double phiX = 0.00005
+	    }
+	}
+}
+ //------- End of 100 inverse pb scenario 2008 ------//
+
+
  
 // -----------------------------------------------------------------------
 // Survey Only misalignment scenario (as interpreted from AN-2005-036)
@@ -161,7 +321,7 @@ block Muon100InversepbScenario =
 block MuonSurveyOnlyScenario =
   {
 
-	using MisalignmentScenarioSettings
+	using MuonMisalignmentScenarioSettings
 
 	// -- Barrel -- //
         PSet DTBarrels = {
@@ -207,7 +367,7 @@ block MuonSurveyOnlyScenario =
 block MuonShortTermScenario =
   {
 
-	using MisalignmentScenarioSettings
+	using MuonMisalignmentScenarioSettings
 
 	// -- Barrel -- //
         PSet DTBarrels = {
@@ -252,7 +412,7 @@ block MuonShortTermScenario =
 block MuonLongTermScenario =
   {
 
-	using MisalignmentScenarioSettings
+	using MuonMisalignmentScenarioSettings
 
 	// -- Barrel -- //
         PSet DTBarrels = {
