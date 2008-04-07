@@ -1,15 +1,17 @@
 /** \file
  *
- *  $Date: 2007/12/06 01:39:23 $
- *  $Revision: 1.4 $
+ *  $Date: 2007/11/01 12:07:50 $
+ *  $Revision: 1.3.2.1 $
  *  \author Andre Sznajder - UERJ(Brazil)
  */
  
 
 // Framework
 #include "FWCore/Utilities/interface/Exception.h"
+#include "FWCore/Framework/interface/EventSetup.h"
 #include "FWCore/Framework/interface/ESHandle.h"
 #include "FWCore/Framework/interface/ModuleFactory.h"
+#include "FWCore/Framework/interface/ESProducer.h"
 #include "FWCore/Framework/interface/ESProducts.h"
 #include "FWCore/MessageLogger/interface/MessageLogger.h"
 
@@ -18,13 +20,14 @@
 #include "CondCore/DBOutputService/interface/PoolDBOutputService.h"
 
 // Alignment
+#include "CondFormats/Alignment/interface/Alignments.h"
+#include "CondFormats/Alignment/interface/AlignmentErrors.h"
+#include "CondFormats/Alignment/interface/AlignmentSorter.h"
 #include "Alignment/MuonAlignment/interface/AlignableMuon.h"
-#include "Geometry/CSCGeometry/interface/CSCGeometry.h" 
 #include "Alignment/MuonAlignment/interface/MuonScenarioBuilder.h"
-#include "Alignment/CommonAlignment/interface/Alignable.h" 
 #include "Geometry/TrackingGeometryAligner/interface/GeometryAligner.h"
 #include "Alignment/MuonAlignment/plugins/MisalignedMuonESProducer.h"
-
+#include "Geometry/CSCGeometry/interface/CSCGeometry.h"
 ///
 /// An ESProducer that fills the MuonDigiGeometryRcd with a misaligned Muon
 /// 
@@ -68,9 +71,7 @@ MisalignedMuonESProducer::produce( const MuonGeometryRecord& iRecord )
   CSCGeometryBuilderFromDDD CSCGeometryBuilder;
 
   theDTGeometry   = boost::shared_ptr<DTGeometry>(  DTGeometryBuilder.build( &(*cpv), *mdc ) );
-  //theCSCGeometry  = boost::shared_ptr<CSCGeometry>( CSCGeometryBuilder.build( &(*cpv), *mdc ) );
-  theCSCGeometry  = boost::shared_ptr<CSCGeometry>( new CSCGeometry );
-  CSCGeometryBuilder.build( theCSCGeometry,  &(*cpv), *mdc );
+  theCSCGeometry  = boost::shared_ptr<CSCGeometry>( CSCGeometryBuilder.build( &(*cpv), *mdc ) );
 
 
   // Create the alignable hierarchy
@@ -92,12 +93,10 @@ MisalignedMuonESProducer::produce( const MuonGeometryRecord& iRecord )
 
   aligner.applyAlignments<DTGeometry>( &(*theDTGeometry),
                                        dt_Alignments, 
-				       dt_AlignmentErrors,
-				       AlignTransform() );
+				       dt_AlignmentErrors );
   aligner.applyAlignments<CSCGeometry>( &(*theCSCGeometry ),
                                         csc_Alignments,
-					csc_AlignmentErrors,
-					AlignTransform() );  
+					csc_AlignmentErrors);  
 
   // Write alignments to DB
   if ( theParameterSet.getUntrackedParameter<bool>("saveToDbase", false) ) saveToDB();
