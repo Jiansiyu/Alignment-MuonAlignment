@@ -7,32 +7,7 @@
 <use name=FWCore/MessageLogger> 
 
 
-<library file=TestMuonHierarchy.cpp name=testMuonHierarchy>
+<library file=*.cpp name=AlignmentMuonAlignment_test>
   <flags EDM_PLUGIN=1>
 </library>
-
-<library file=TestMisalign.cpp name=testMuonMisalign>
-  <flags EDM_PLUGIN=1>
-</library>
-
-<library file=TestReader.cpp name=testMuonReader>
-  <flags EDM_PLUGIN=1>
-</library>
-
-<library file=TestRotation.cpp name=testMuonRotation>
-  <flags EDM_PLUGIN=1>
-</library>
-
-<library file=TestTranslation.cpp name=testMuonTranslation>
-  <flags EDM_PLUGIN=1>
-</library>
-
-<library file=TestAlign.cpp name=testMuonAlign>
-  <flags EDM_PLUGIN=1>
-</library>
-
-<library file=MuonAlignmentDBCopy.cpp name=muonAlignmentDBCopy>
-  <flags EDM_PLUGIN=1>
-</library>
-
 
