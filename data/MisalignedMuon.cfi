@@ -1,0 +1,21 @@
+// Include this file to produce the muon geometries from a misalignment scenario
+//
+// This replaces: Geometry/DTGeometry/data/dtGeometry.cfi
+//                Geometry/CSCGeometry/data/cscGeometry.cfi
+//
+
+include "Alignment/MuonAlignment/data/Scenarios.cff"
+
+es_module MisalignedMuon = MisalignedMuonESProducer
+{
+   using MuonNoMovementsScenario
+
+#   using MuonSurveyOnlyScenario
+#
+#   using Muon100inversePbScenario2008
+#   using Muon10inversePbScenario2008
+#   using Muon0inversePbScenario2008
+#
+#   using Muon100InversepbScenario
+#   using Muon10InversepbScenario
+}
