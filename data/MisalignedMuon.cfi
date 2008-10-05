@@ -8,13 +8,13 @@ include "Alignment/MuonAlignment/data/Scenarios.cff"
 
 es_module MisalignedMuon = MisalignedMuonESProducer
 {
-   using MuonNoMovementsScenario
+#   using MuonNoMovementsScenario
 
 #   using MuonSurveyOnlyScenario
 #
 #   using Muon100inversePbScenario2008
 #   using Muon10inversePbScenario2008
-#   using Muon0inversePbScenario2008
+   using Muon0inversePbScenario2008
 #
 #   using Muon100InversepbScenario
 #   using Muon10InversepbScenario

@@ -106,7 +106,7 @@ block Muon100InversepbScenario =
    using MuonMisalignmentScenarioSettings
 
    // -- All the muon system -- // 
-   PSet Muons = {
+   PSet Muon = {
      string distribution = 'gaussian'
      double scale = 1.0
      double scaleError = 1.0
@@ -134,7 +134,7 @@ block Muon100InversepbScenario =
    }
    
    // -- Move DT Sectors -- //
-   PSet DTSectors = {
+   PSet DTSector = {
      double scale = 1.0
      double scaleError = 1.0
      double dX = 0.1 double dY = 0.1 double dZ = 0.1
@@ -142,7 +142,7 @@ block Muon100InversepbScenario =
    }
    
    // -- Move DT Sectors -- //
-   PSet CSCSectors = {
+   PSet CSCSector = {
      double scale = 1.0
      double scaleError = 1.0
      double dX = 0.1 double dY = 0.1 double dZ = 0.1
@@ -197,14 +197,14 @@ block Muon0inversePbScenario2008 = {
     }
   }
   // -- Move DT Sectors -- //
-  PSet DTSectors = {
+  PSet DTSector = {
     double scale = 1.0
     double scaleError = 1.0
     double dX = 0.05 double dY = 0.05 double dZ = 0.1
     double phiZ = 0.0001 double phiY = 0.00005 double phiX = 0.00005
   }
   // -- Move CSC Sectors -- //
-  PSet CSCSectors = {
+  PSet CSCSector = {
     double scale = 1.0
     double scaleError = 1.0
     double dX = 0.05 double dY = 0.05 double dZ = 0.05
@@ -259,14 +259,14 @@ block Muon10inversePbScenario2008 = {
     }
   }
   // -- Move DT Sectors -- //
-  PSet DTSectors = {
+  PSet DTSector = {
     double scale = 1.0
     double scaleError = 1.0
     double dX = 0.05 double dY = 0.05 double dZ = 0.1
     double phiZ = 0.0001 double phiY = 0.00005 double phiX = 0.00005
   }
   // -- Move CSC Sectors -- //
-  PSet CSCSectors = {
+  PSet CSCSector = {
     double scale = 1.0
     double scaleError = 1.0
     double dX = 0.05 double dY = 0.05 double dZ = 0.05
@@ -314,14 +314,14 @@ block Muon100inversePbScenario2008 = {
 		}
 	    }
   // -- Move DT Sectors -- //
-  PSet DTSectors = {
+  PSet DTSector = {
     double scale = 1.0
     double scaleError = 1.0
     double dX = 0.05 double dY = 0.05 double dZ = 0.1
     double phiZ = 0.0001 double phiY = 0.00005 double phiX = 0.00005
 	    }
   // -- Move CSC Sectors -- //
-  PSet CSCSectors = {
+  PSet CSCSector = {
     double scale = 1.0
     double scaleError = 1.0
     double dX = 0.05 double dY = 0.05 double dZ = 0.05
