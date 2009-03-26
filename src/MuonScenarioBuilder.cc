@@ -1,7 +1,7 @@
 /** \file
  *
- *  $Date: 2008/10/05 20:12:22 $
- *  $Revision: 1.6 $
+ *  $Date: 2008/04/15 16:05:53 $
+ *  $Revision: 1.5 $
  *  \author Andre Sznajder - UERJ(Brazil)
  */
  
@@ -112,7 +112,7 @@ void MuonScenarioBuilder::moveDTSectors(const edm::ParameterSet& pSet) {
   
   std::vector<Alignable *> DTchambers = theAlignableMuon->DTChambers();
   //Take parameters
-  std::vector<float> param = this->extractParameters(pSet, "DTSectors");
+  std::vector<float> param = this->extractParameters(pSet, "DTSector");
   float scale_ = param[0]; float scaleError_ = param[1];
   float phiX_ = param[2]; float phiY_ = param[3]; float phiZ_ = param[4];
   float dX_ = param[5]; float dY_ = param[6]; float dZ_ = param[7];
@@ -175,7 +175,7 @@ void MuonScenarioBuilder::moveCSCSectors(const edm::ParameterSet& pSet) {
   
   std::vector<Alignable *> CSCchambers = theAlignableMuon->CSCChambers();
   //Take Parameters
-  std::vector<float> param = this->extractParameters(pSet, "CSCSectors");
+  std::vector<float> param = this->extractParameters(pSet, "CSCSector");
   float scale_ = param[0]; float scaleError_ = param[1];
   float phiX_ = param[2]; float phiY_ = param[3]; float phiZ_ = param[4];
   float dX_ = param[5]; float dY_ = param[6]; float dZ_ = param[7];
