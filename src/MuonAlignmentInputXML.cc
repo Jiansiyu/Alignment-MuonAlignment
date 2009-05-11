@@ -8,7 +8,7 @@
 //
 // Original Author:  Jim Pivarski
 //         Created:  Mon Mar 10 16:37:40 CDT 2008
-// $Id: MuonAlignmentInputXML.cc,v 1.7 2008/05/17 16:50:06 pivarski Exp $
+// $Id: MuonAlignmentInputXML.cc,v 1.8 2008/06/20 15:28:12 pivarski Exp $
 //
 
 // system include files
@@ -852,7 +852,8 @@ void MuonAlignmentInputXML::do_setape(const xercesc_2_7::DOMElement *node, std::
    matrix3x3(3,3) = parseDouble(node_zz->getValue(), "zz");
 
    for (std::map<Alignable*, bool>::const_iterator aliiter = aliset.begin();  aliiter != aliset.end();  ++aliiter) {
-      aliiter->first->setAlignmentPositionError(AlignmentPositionError(matrix3x3));
+     // this sets APEs at this level and (since 2nd argument is true) all lower levels
+     aliiter->first->setAlignmentPositionError(AlignmentPositionError(matrix3x3), true);
    }
 }
 
