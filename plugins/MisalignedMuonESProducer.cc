@@ -5,8 +5,8 @@
 /// when producing Misalignment scenarios.
 ///
 /// \file
-/// $Date: 2009/03/02 10:22:16 $
-/// $Revision: 1.10 $
+/// $Date: 2009/03/26 09:56:51 $
+/// $Revision: 1.11 $
 /// \author Andre Sznajder - UERJ(Brazil)
 ///
  
@@ -114,8 +114,9 @@ MisalignedMuonESProducer::produce( const MuonGeometryRecord& iRecord )
   DTGeometryBuilderFromDDD  DTGeometryBuilder;
   CSCGeometryBuilderFromDDD CSCGeometryBuilder;
 
-  theDTGeometry = boost::shared_ptr<DTGeometry>(new DTGeometry );
-  DTGeometryBuilder.build(theDTGeometry,  &(*cpv), *mdc );
+  //  theDTGeometry = boost::shared_ptr<DTGeometry>(new DTGeometry );
+  //  DTGeometryBuilder.build(theDTGeometry,  &(*cpv), *mdc );
+  theDTGeometry   = boost::shared_ptr<DTGeometry>(  DTGeometryBuilder.build( &(*cpv), *mdc ) );
   theCSCGeometry  = boost::shared_ptr<CSCGeometry>( new CSCGeometry );
   CSCGeometryBuilder.build( theCSCGeometry,  &(*cpv), *mdc );
 
