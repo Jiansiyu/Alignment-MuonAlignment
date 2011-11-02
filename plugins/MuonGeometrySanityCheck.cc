@@ -13,7 +13,7 @@
 //
 // Original Author:  Jim Pivarski
 //         Created:  Sat Jul  3 13:33:13 CDT 2010
-// $Id: MuonGeometrySanityCheck.cc,v 1.1 2010/07/10 00:24:50 pivarski Exp $
+// $Id: MuonGeometrySanityCheck.cc,v 1.3 2011/10/12 22:13:00 khotilov Exp $
 //
 //
 
@@ -278,7 +278,6 @@ MuonGeometrySanityCheckPoint::MuonGeometrySanityCheckPoint(const edm::ParameterS
       int superlayer = 0;
       bool superlayer_digit = false;
       int layer = 0;
-      bool layer_digit = false;
       if (detName.substr(index, 1) == std::string("/")) {
 	 index++;
 	 while (!parsing_error  &&  numeric(detName.substr(index, 1))) {
@@ -294,7 +293,6 @@ MuonGeometrySanityCheckPoint::MuonGeometrySanityCheckPoint(const edm::ParameterS
 	    while (!parsing_error  &&  numeric(detName.substr(index, 1))) {
 	       layer *= 10;
 	       layer += number(detName.substr(index, 1));
-	       layer_digit = true;
 	       index++;
 	    }
 	 }
@@ -602,8 +600,8 @@ MuonGeometrySanityCheck::analyze(const edm::Event &iEvent, const edm::EventSetup
       }
 
       else if (point->frame == MuonGeometrySanityCheckPoint::kCustom) {
-	 GlobalPoint transformed = point->customFrame->transform(point->displacement);
-	 result = GlobalPoint(chamberPos.x() + transformed.x(), chamberPos.y() + transformed.y(), chamberPos.z() + transformed.z());
+        GlobalPoint transformed = point->customFrame->transform(point->displacement);
+        result = GlobalPoint(chamberPos.x() + transformed.x(), chamberPos.y() + transformed.y(), chamberPos.z() + transformed.z());
       }
 
       else { assert(false); }
@@ -612,10 +610,10 @@ MuonGeometrySanityCheck::analyze(const edm::Event &iEvent, const edm::EventSetup
       if (point->outputFrame == MuonGeometrySanityCheckPoint::kGlobal) { }
 
       else if (point->outputFrame == MuonGeometrySanityCheckPoint::kLocal) {
-	 LocalPoint transformed;
-	 if (dt) transformed = dtGeometry->idToDet(point->detector)->surface().toLocal(result);
-	 else transformed = cscGeometry->idToDet(point->detector)->surface().toLocal(result);
-	 result = GlobalPoint(transformed.x(), transformed.y(), transformed.z());
+        LocalPoint transformed;
+        if (dt) transformed = dtGeometry->idToDet(point->detector)->surface().toLocal(result);
+        else transformed = cscGeometry->idToDet(point->detector)->surface().toLocal(result);
+        result = GlobalPoint(transformed.x(), transformed.y(), transformed.z());
       }
 
       else if (point->outputFrame == MuonGeometrySanityCheckPoint::kChamber) {
